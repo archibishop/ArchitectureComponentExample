@@ -18,7 +18,10 @@ public abstract class NoteDatabase extends RoomDatabase {
     public static synchronized NoteDatabase getInstance(Context context){
         if (instance == null){
             instance = Room.databaseBuilder(context.getApplicationContext(),
-                    NoteDatabase.class, "note_database").fallbackToDestructiveMigration().build();
+                    NoteDatabase.class, "note_database")
+                    .fallbackToDestructiveMigration()
+                    .addCallback(roomCallBack)
+                    .build();
         }
         return instance;
     }
@@ -44,8 +47,8 @@ public abstract class NoteDatabase extends RoomDatabase {
         @Override
         protected Void doInBackground(Void... voids) {
             noteDao.insert(new Note("title1", "description1", 1));
-            noteDao.insert(new Note("title3", "description2", 2));
-            noteDao.insert(new Note("title4", "description3", 3));
+            noteDao.insert(new Note("title2", "description2", 2));
+            noteDao.insert(new Note("title3", "description3", 3));
             return null;
         }
     }
