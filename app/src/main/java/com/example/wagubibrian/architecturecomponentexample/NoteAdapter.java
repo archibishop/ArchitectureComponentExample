@@ -42,7 +42,9 @@ public class NoteAdapter extends ListAdapter<Note, NoteAdapter.NoteHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull NoteHolder noteHolder, int i) {
+      
         Note currentNote = getItem(i);
+
         noteHolder.textViewTitle.setText(currentNote.getTitle());
         noteHolder.textViewDescription.setText(currentNote.getDescription());
         noteHolder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));

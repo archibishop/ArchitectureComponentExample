@@ -16,10 +16,17 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+  
+    public static final int ADD_NOTE_REQUEST = 1;
+    private NoteViewModel noteViewModel;
+
+    public static final int ADD_NOTE_REQUEST = 1;
+    public static final int EDIT_NOTE_REQUEST = 2;
+
+    private NoteViewModel noteViewModel;
 
     public static final int ADD_NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
@@ -54,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 noteAdapter.submitList(notes);
             }
         });
-
+      
         new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,
                 ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT ) {
             @Override
