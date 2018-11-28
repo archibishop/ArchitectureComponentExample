@@ -15,6 +15,7 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     private List<Note> notes = new ArrayList<>();
     private onItemClickListener listener;
 
+
     @NonNull
     @Override
     public NoteHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
@@ -75,4 +76,5 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     public void setOnItemClickListener(onItemClickListener Listener){
         this.listener = Listener;
     }
+
 }
