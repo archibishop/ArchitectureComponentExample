@@ -29,8 +29,8 @@ public class NoteRepository  {
     public void delete(Note note) {
         new DeleteNoteAsyncTask(noteDao).execute(note);
     }
-
-    public void deleteAllNotes(Note note)  {
+  
+    public void deleteAllNotes()  {
         new DeleteAllNotesAsyncTask(noteDao).execute();
     }
 
