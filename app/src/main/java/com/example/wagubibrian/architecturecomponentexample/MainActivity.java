@@ -28,6 +28,11 @@ public class MainActivity extends AppCompatActivity {
 
     private NoteViewModel noteViewModel;
 
+    public static final int ADD_NOTE_REQUEST = 1;
+    public static final int EDIT_NOTE_REQUEST = 2;
+
+    private NoteViewModel noteViewModel;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
-                noteAdapter.setNotes(notes);
+                noteAdapter.submitList(notes);
             }
         });
       
